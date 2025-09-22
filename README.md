@@ -9,6 +9,6 @@ Repozytorium zawiera zestaw plików (dashboardy Grafany, szablony Zabbix, skrypt
 
 ## Lista plików
 Zabbix 7.0 LTS:
-- [Zabbix + grafana - cz.2 - Przedstawianie danych](./7.0\Zabbix+grafana_cz_2_Przedstawianie_danych)  
+- [Zabbix + grafana - cz.2 - Przedstawianie danych](./7.0/Zabbix+grafana_cz_2_Przedstawianie_danych)  
 
 
