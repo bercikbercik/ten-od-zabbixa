@@ -1,6 +1,11 @@
-# Zabbix + grafana - cz.2 - Przedstawianie danych
+# Zabbix + grafana - cz.2 & cz.3 
 
-Ten katalog zawiera pliki towarzyszące artykułowi:
+## Linki do artykułów
+
+- [Zabbix Grafana - część 2 - przedstawianie danych](https://sekurak.pl/zabbix-grafana-czesc-2-przedstawianie-danych/)
+- [Zabbix Grafana - część 3 - przykłady zaawansowane](https://sekurak.pl/zabbix-grafana-czesc-3-przedstawianie-danych-przyklady-zaawansowane)
+
+## Pliki:
 
 - `Przykładowy dashboard-1758564724084.json` – cały dashboard zawierający skonfigurowane wszystkie 4 panele.
 
