@@ -10,5 +10,6 @@ Repozytorium zawiera zestaw plików (dashboardy Grafany, szablony Zabbix, skrypt
 ## Lista plików
 Zabbix 7.0 LTS:
 - [Zabbix + grafana - cz.2 & cz. 3](./7.0/Zabbix+grafana_cz_2_cz_3)  
+- [Zabbix + grafana - cz.4](./7.0/Zabbix+grafana_cz_4)
 
 
