@@ -1,0 +1,531 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_ZABBIX-API-7-0",
+      "label": "zabbix-API-7-0",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "yesoreyeram-infinity-datasource",
+      "pluginName": "Infinity"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "barchart",
+      "name": "Bar chart",
+      "version": ""
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "12.1.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "yesoreyeram-infinity-datasource",
+      "name": "Infinity",
+      "version": "3.6.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "I love sekurak!",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [],
+  "panels": [
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_ZABBIX-API-7-0}"
+      },
+      "description": "Lista niedostępnych interfejsów z grupy 'Linux servers'",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#959595",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "czas błędu"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "index": 0,
+                        "text": "-"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "typ"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1": {
+                        "index": 0,
+                        "text": "Zabbix Agent"
+                      },
+                      "2": {
+                        "index": 1,
+                        "text": "SNMP"
+                      },
+                      "3": {
+                        "index": 2,
+                        "text": "IPMI"
+                      },
+                      "4": {
+                        "index": 3,
+                        "text": "JMX"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "dostępność"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "#a7a7a7",
+                        "index": 0,
+                        "text": "Nieznany"
+                      },
+                      "2": {
+                        "color": "red",
+                        "index": 1,
+                        "text": "Niedostępny"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": true,
+                  "type": "color-background"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 8,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "available"
+          }
+        ]
+      },
+      "pluginVersion": "12.1.0",
+      "targets": [
+        {
+          "columns": [],
+          "data": "{\n  \"result\": [\n    {\n      \"host\": \"web01\",\n      \"available\": \"1\",\n      \"active_available\": \"1\",\n      \"items\": [\n        { \"itemid\": \"123\", \"type\": 7, \"lastclock\": \"1730899320\", \"status\": \"0\" },\n        { \"itemid\": \"124\", \"type\": 0, \"lastclock\": \"1730899200\", \"status\": \"0\" }\n      ]\n    },\n    {\n      \"host\": \"db01\",\n      \"available\": \"1\",\n      \"active_available\": \"0\",\n      \"items\": [\n        { \"itemid\": \"223\", \"type\": 7, \"lastclock\": \"1730885040\", \"status\": \"0\" },\n        { \"itemid\": \"224\", \"type\": 7, \"lastclock\": \"1730870000\", \"status\": \"1\" }\n      ]\n    }\n  ]\n}",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_ZABBIX-API-7-0}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "uql",
+          "refId": "A",
+          "root_selector": "$map(\n  $filter(result, function($h){\n    $count($filter($h.items ? $h.items : [], function($it){\n      $it.type = \"7\" and $it.status = \"0\"\n    })) > 0\n  }),\n  function($h){\n    {\n      \"host\": $h.host,\n      \"active\": $h.active_available,\n      \"last_data\": (\n        $vals := $filter($h.items ? $h.items : [], function($it){\n          $it.type = \"7\" and $it.status = \"0\"\n        }).lastclock;\n        $nums := $map($vals, function($v){ $number($v) });\n        $maxv := $max($nums);\n        $maxv > 0 ? $maxv * 1000 : null\n      )\n    }\n  }\n)",
+          "source": "url",
+          "type": "json",
+          "uql": "parse-json\r\n| scope \"result\"\r\n| mv-expand \"interfaces\"\r\n| extend \"error_time\"=mul(\"interfaces.errors_from\",1000)\r\n| where \"interfaces.available\"!='1'\r\n| project \"host\"=\"host\", \"typ\"=\"interfaces.type\", \"błąd\"=\"interfaces.error\", \"czas błędu\"=\"error_time\", \"dostępność\"=\"interfaces.available\"",
+          "url": "",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\r\n  \"jsonrpc\": \"2.0\",\r\n  \"method\": \"host.get\",\r\n  \"params\": {\r\n    \"groupids\": 2,\r\n    \"output\": [\"hostid\",\"host\"],\r\n    \"selectInterfaces\": [\"interfaceid\",\"available\",\"type\",\"error\",\"errors_from\"],\r\n    \"filter\": { \"status\": 0 }\r\n  },\r\n  \"id\": 1\r\n}",
+            "headers": [],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Lista niedostępnych interfejsów",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "czas błędu"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_ZABBIX-API-7-0}"
+      },
+      "description": "Lista niedostępnych interfejsów aktywnych z grupy 'Linux servers'",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#959595",
+                "value": 0
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "stan interfejsu aktywnego"
+            },
+            "properties": [
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "0": {
+                        "color": "#808080",
+                        "index": 0,
+                        "text": "Nieznany"
+                      },
+                      "1": {
+                        "color": "green",
+                        "index": 1,
+                        "text": "Dostępny"
+                      },
+                      "2": {
+                        "color": "red",
+                        "index": 2,
+                        "text": "Niedostępny"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "applyToRow": true,
+                  "type": "color-background"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 8
+      },
+      "id": 3,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "last_data"
+          }
+        ]
+      },
+      "pluginVersion": "12.1.0",
+      "targets": [
+        {
+          "columns": [],
+          "data": "{\n  \"result\": [\n    {\n      \"host\": \"web01\",\n      \"available\": \"1\",\n      \"active_available\": \"1\",\n      \"items\": [\n        { \"itemid\": \"123\", \"type\": 7, \"lastclock\": \"1730899320\", \"status\": \"0\" },\n        { \"itemid\": \"124\", \"type\": 0, \"lastclock\": \"1730899200\", \"status\": \"0\" }\n      ]\n    },\n    {\n      \"host\": \"db01\",\n      \"available\": \"1\",\n      \"active_available\": \"0\",\n      \"items\": [\n        { \"itemid\": \"223\", \"type\": 7, \"lastclock\": \"1730885040\", \"status\": \"0\" },\n        { \"itemid\": \"224\", \"type\": 7, \"lastclock\": \"1730870000\", \"status\": \"1\" }\n      ]\n    }\n  ]\n}",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_ZABBIX-API-7-0}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "$map(\n  $filter(result, function($h){\n    $count($filter($h.items ? $h.items : [], function($it){\n      $it.type = \"7\" and $it.status = \"0\"\n    })) > 0\n  }),\n  function($h){\n    {\n      \"host\": $h.host,\n      \"stan interfejsu aktywnego\": $h.active_available,\n      \"ostatni odczyt\": (\n        $vals := $filter($h.items ? $h.items : [], function($it){\n          $it.type = \"7\" and $it.status = \"0\"\n        }).lastclock;\n        $nums := $map($vals, function($v){ $number($v) });\n        $maxv := $max($nums);\n        $maxv > 0 ? $maxv * 1000 : null\n      )\n    }\n  }\n)",
+          "source": "url",
+          "type": "json",
+          "uql": "parse-json",
+          "url": "",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\r\n  \"jsonrpc\": \"2.0\",\r\n  \"method\": \"host.get\",\r\n  \"params\": {\r\n    \"groupids\": 2,\r\n    \"output\": [\"host\", \"active_available\"],\r\n    \"selectItems\": [\"type\", \"lastclock\", \"status\"],\r\n    \"filter\": { \"status\": 0 }\r\n  },\r\n  \"id\": 1\r\n}",
+            "headers": [],
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Lista niedostępnych interfejsów aktywnych",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "time",
+                "targetField": "ostatni odczyt"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_ZABBIX-API-7-0}"
+      },
+      "description": "Zestawienie błędów na pozycjach w grupie 'Linux servers'",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "red",
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 80,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 1,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": 0
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 12,
+        "y": 8
+      },
+      "id": 4,
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.97,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "table",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "horizontal",
+        "showValue": "never",
+        "stacking": "none",
+        "tooltip": {
+          "hideZeros": false,
+          "mode": "single",
+          "sort": "none"
+        },
+        "xField": "błąd",
+        "xTickLabelRotation": 0,
+        "xTickLabelSpacing": 0
+      },
+      "pluginVersion": "12.1.0",
+      "targets": [
+        {
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_ZABBIX-API-7-0}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "my-query-1",
+          "parser": "jq-backend",
+          "refId": "A",
+          "root_selector": ".result\n| map({ error, host: .hosts[0].host })\n| group_by(.error)\n| map({\n    \"błąd\": .[0].error,\n    \"ilość\": length,\n    \"hosty\": (map(.host) | unique | join(\", \"))\n})\n| sort_by(-.\"ilość\")",
+          "source": "url",
+          "type": "json",
+          "url": "",
+          "url_options": {
+            "body_content_type": "application/json",
+            "body_type": "raw",
+            "data": "{\r\n  \"jsonrpc\": \"2.0\",\r\n  \"method\": \"item.get\",\r\n  \"params\": {\r\n    \"groupids\": 2,\r\n    \"output\": [\"itemid\", \"error\"],\r\n    \"monitored\": \"true\",\r\n    \"selectHosts\": [\"host\"],\r\n    \"filter\": {\r\n      \"state\": 1\r\n    }\r\n  },\r\n  \"id\": 1\r\n}",
+            "method": "POST"
+          }
+        }
+      ],
+      "title": "Zestawienie błędów na pozycjach",
+      "type": "barchart"
+    }
+  ],
+  "schemaVersion": 41,
+  "tags": [
+    "test",
+    "sekurak",
+    "Zabbix",
+    "infinity"
+  ],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "timezone": "browser",
+  "title": "Przykładowy dashboard 3",
+  "uid": "5ea5573e-7d9a-4d9e-bd1b-78bb0c262ad2",
+  "version": 17,
+  "weekStart": ""
+}
